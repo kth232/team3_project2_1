@@ -1,4 +1,4 @@
-package org.choongang.member.controllers;
+package org.choongang.ranking;
 
 import lombok.Builder;
 import lombok.Data;

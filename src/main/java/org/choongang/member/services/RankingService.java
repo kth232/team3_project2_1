@@ -1,7 +1,7 @@
 package org.choongang.member.services;
 
 import org.choongang.global.Service;
-import org.choongang.member.controllers.RequestRanking;
+import org.choongang.ranking.RequestRanking;
 
 public class RankingService implements Service<RequestRanking> {
     @Override

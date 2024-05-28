@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.contents.Menu;
+import org.choongang.ranking.RankingController;
 
 import java.util.HashMap;
 import java.util.Map;
