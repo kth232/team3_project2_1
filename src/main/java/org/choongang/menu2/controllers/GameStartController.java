@@ -6,8 +6,7 @@ import org.choongang.template.Templates;
 
 public class GameStartController extends AbstractController {
     @Override
-    public String show() {
+    public void show() {
         Templates.getInstance().render(Menu2.GAMESTART);
-        return null;
     }
 }

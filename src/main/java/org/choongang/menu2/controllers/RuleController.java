@@ -12,9 +12,8 @@ import org.choongang.template.Templates;
  */
 public class RuleController extends AbstractController {
     @Override
-    public String show() { //모델과 뷰 연결 및 동작
+    public void show() { //모델과 뷰 연결 및 동작
         Templates.getInstance().render(Menu2.RULE);
-        return null;
     }
 
     @Override

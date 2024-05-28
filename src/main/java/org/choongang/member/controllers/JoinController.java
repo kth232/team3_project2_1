@@ -13,9 +13,8 @@ import org.choongang.template.Templates;
  */
 public class JoinController extends AbstractController {
     @Override
-    public String show() {
+    public void show() {
         Templates.getInstance().render(Menu.JOIN);
-        return null;
     }
 
     @Override

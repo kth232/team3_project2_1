@@ -13,9 +13,8 @@ import org.choongang.template.Templates;
  */
 public class LoginController extends AbstractController {
     @Override
-    public String show() {
+    public void show() {
         Templates.getInstance().render(Menu.LOGIN);
-        return null;
     }
 
     @Override

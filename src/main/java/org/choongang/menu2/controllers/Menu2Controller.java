@@ -9,8 +9,7 @@ public class Menu2Controller extends AbstractController{
  * 메뉴2 메인 컨트롤러
  */
     @Override
-    public String show() {
+    public void show() {
         Templates.getInstance().render(Menu2.MAIN2);
-        return null;
     }
 }
