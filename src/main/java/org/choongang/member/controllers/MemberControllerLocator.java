@@ -32,9 +32,9 @@ public class MemberControllerLocator implements ControllerLocator {
         }
         switch (menu) {
             case JOIN: controller = new JoinController(); break;
-            case LOGIN:  controller = new LoginController(); break;
-            default: controller = new RankingController();
-            //추후 컨트롤러 추가
+            case LOGIN: controller = new LoginController(); break;
+            default:  controller = new RankingController();
+
         }
         controllers.put(menu, controller); //기존 것이 있으면 기존 것 사용, 없으면 새로 추가
         return controller;

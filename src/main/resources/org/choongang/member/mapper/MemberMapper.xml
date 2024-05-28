@@ -3,14 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member.mapper.MemberMapper">
-    <resultMap id="memberMap" type="member.Member">
+    <resultMap id="memberMap" type="org.choongang.member.entities.Member">
         <result column="USER_ID" property="userId"/>
         <result column="USER_PW" property="userPw"/>
         <result column="POINT" property="point"/>
+        <result column="REG_DT" property="regDt"/>
+        <result column="MOD_DT" property="modDt"/>
     </resultMap>
 
+    <select id="getList" resultMap="memberMap">
+        SELECT * FROM MEMBER
+    </select>
+
     <select id="getRanking" resultMap="memberMap">
-        SELECT USER_ID, POINT, RANK() OVER(ORDER BY NVL(POINT, 0) DESC) AS RANK FROM MEMBER;
+        SELECT * FROM MEMBER
+        <where>
+            <if test="userId != null">
+                USER_ID = #{userId}
+            </if>
+        </where>
     </select>
 
     <!-- 회원 등록 -->
