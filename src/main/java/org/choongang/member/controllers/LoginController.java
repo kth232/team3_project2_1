@@ -1,6 +1,5 @@
 package org.choongang.member.controllers;
 
-import com.sun.tools.javac.Main;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
@@ -14,8 +13,9 @@ import org.choongang.template.Templates;
  */
 public class LoginController extends AbstractController {
     @Override
-    public void show() {
+    public String show() {
         Templates.getInstance().render(Menu.LOGIN);
+        return null;
     }
 
     @Override

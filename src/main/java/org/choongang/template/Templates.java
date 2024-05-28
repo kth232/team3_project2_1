@@ -1,6 +1,7 @@
 package org.choongang.template;
 
 import org.choongang.global.contents.Menu;
+import org.choongang.menu2.contents.Menu2;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;

@@ -8,15 +8,14 @@ import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
-import java.util.function.Predicate;
-
 /**
  * 회원가입 컨트롤러
  */
 public class JoinController extends AbstractController {
     @Override
-    public void show() {
+    public String show() {
         Templates.getInstance().render(Menu.JOIN);
+        return null;
     }
 
     @Override

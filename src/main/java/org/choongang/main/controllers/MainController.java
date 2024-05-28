@@ -9,7 +9,8 @@ import org.choongang.template.Templates;
  */
 public class MainController extends AbstractController {
     @Override
-    public void show() {
+    public String show() {
         Templates.getInstance().render(Menu.MAIN);
+        return null;
     }
 }
