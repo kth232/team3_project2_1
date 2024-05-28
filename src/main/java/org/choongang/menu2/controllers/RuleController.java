@@ -2,10 +2,6 @@ package org.choongang.menu2.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
-import org.choongang.global.Service;
-import org.choongang.global.contents.Menu;
-import org.choongang.main.MainRouter;
-import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.menu2.Menu2Router;
 import org.choongang.menu2.contents.Menu2;
 import org.choongang.template.Templates;

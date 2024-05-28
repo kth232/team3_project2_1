@@ -50,4 +50,7 @@ public class Templates {
     public String doubleLine() {
         return "========================\n";
     }
+
+    public void render(Menu2 menu2) {
+    }
 }
