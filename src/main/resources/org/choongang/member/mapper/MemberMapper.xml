@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member.mapper.MemberMapper">
+<mapper namespace="org.choongang.member.mapper.MemberMapper">
     <resultMap id="memberMap" type="org.choongang.member.entities.Member">
         <result column="USER_ID" property="userId"/>
         <result column="USER_PW" property="userPw"/>

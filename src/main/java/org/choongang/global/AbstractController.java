@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.contents.Menu;
+import org.choongang.global.contents.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
@@ -18,7 +18,7 @@ public abstract class AbstractController implements Controller {
      */
     public void common() {
         System.out.print(Templates.getInstance().doubleLine());
-        System.out.println("( •̀ ω •́ )✧묵찌빠 게임 ver1.0.0");
+        System.out.println("( •̀ ω •́ )✧ AI를 이겨라! 묵찌빠 게임 ver1.0.0");
         System.out.print(Templates.getInstance().doubleLine());
     }
 
@@ -72,14 +72,14 @@ public abstract class AbstractController implements Controller {
         }
 
     private void change(int menuNo) {
-        Menu menu = null;
+        MainMenu mainMenu = null;
         switch (menuNo) {
-            case 1: menu = Menu.JOIN; break; //회원가입, 간단한 조건절일 경우 줄개행 없이 break문 가능
-            case 2: menu = Menu.LOGIN; break; //로그인
-            case 3: menu = Menu.RANKING; break; //랭킹
-            default: menu = Menu.MAIN; //메인 화면
+            case 1: mainMenu = MainMenu.JOIN; break; //회원가입, 간단한 조건절일 경우 줄개행 없이 break문 가능
+            case 2: mainMenu = MainMenu.LOGIN; break; //로그인
+            case 3: mainMenu = MainMenu.RANKING; break; //랭킹
+            default: mainMenu = MainMenu.MAIN; //메인 화면
         }
         //메뉴 컨트롤러 변경 처리-Router/싱글톤 패턴으로 자원 절약
-        MainRouter.getInstance().change(menu);
+        MainRouter.getInstance().change(mainMenu);
     }
 }
