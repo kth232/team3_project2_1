@@ -9,7 +9,7 @@ import java.util.Map;
 public class TemplatesM2 {
     private static TemplatesM2 instance;
 
-    private Map<Menu2, Template> tpls;
+    private Map<Menu2, TemplateM2> tpls;
 
     private TemplatesM2() {
         tpls = new HashMap<>();
@@ -25,8 +25,8 @@ public class TemplatesM2 {
         System.out.println(find(menu2).getTpl()); //각 메뉴마다 해당 tpl 가져옴
     }
 
-    public Template find(Menu2 menu2) {
-        Template tpl = tpls.get(menu2);
+    public TemplateM2 find(Menu2 menu2) {
+        TemplateM2 tpl = tpls.get(menu2);
         if (tpl != null) {
             return tpl;
         }

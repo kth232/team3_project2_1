@@ -3,7 +3,7 @@ package org.choongang.template.menu2;
 import org.choongang.template.Template;
 import org.choongang.template.Templates;
 
-public class RuleTpl implements Template {
+public class RuleTpl implements TemplateM2 {
 
     @Override
     public String getTpl() {
