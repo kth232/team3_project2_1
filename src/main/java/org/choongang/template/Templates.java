@@ -1,11 +1,10 @@
 package org.choongang.template;
 
 import org.choongang.global.contents.Menu;
-import org.choongang.menu2.contents.Menu2;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
-import org.choongang.template.member.MypageTpl;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +36,6 @@ public class Templates {
         switch (menu) {
             case JOIN: tpl = new JoinTpl(); break;
             case LOGIN: tpl = new LoginTpl(); break;
-            case MYPAGE: tpl = new MypageTpl(); break;
             default: tpl = new MainTpl();
         }
         tpls.put(menu, tpl);
@@ -49,8 +47,5 @@ public class Templates {
 
     public String doubleLine() {
         return "========================\n";
-    }
-
-    public void render(Menu2 menu2) {
     }
 }

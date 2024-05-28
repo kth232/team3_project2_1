@@ -7,6 +7,7 @@ import org.choongang.menu2.contents.Menu2;
  */
 public interface Router2 {
     void change(Menu2 menu2);
+
     //enum 상수를 넣으면 해당 메뉴로 연결
     void start();
 }

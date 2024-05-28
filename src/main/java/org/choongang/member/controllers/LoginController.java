@@ -6,6 +6,9 @@ import org.choongang.global.Service;
 import org.choongang.global.contents.Menu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
+import org.choongang.menu2.Menu2Router;
+import org.choongang.menu2.Router2;
+import org.choongang.menu2.contents.Menu2;
 import org.choongang.template.Templates;
 
 /**
@@ -30,13 +33,14 @@ public class LoginController extends AbstractController {
                 .build();
 
         Router router = MainRouter.getInstance();
+        Router2 router2 = Menu2Router.getInstance();
         
         try {
             Service service = MemberServiceLocator.getInstance().find(Menu.LOGIN);
             service.process(form);
 
-            //로그인 성공 시->메인 화면으로 이동
-            router.change(Menu.MAIN);
+            //로그인 성공 시->MENU2 메인 화면으로 이동
+            router2.change(Menu2.MAIN2);
         } catch (RuntimeException e) {
             //로그인 실패 시 -> 로그인 화면으로 이동
             System.err.println(e.getMessage());
