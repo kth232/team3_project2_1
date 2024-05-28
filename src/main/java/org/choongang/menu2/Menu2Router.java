@@ -1,12 +1,9 @@
 package org.choongang.menu2;
 
 import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.Router;
-import org.choongang.global.contents.Menu;
 import org.choongang.menu2.contents.Menu2;
 import org.choongang.menu2.controllers.Menu2ControllerLocator;
-import org.choongang.menu2.main.MainController;
+import org.choongang.menu2.controllers.Menu2Controller;
 
 public class Menu2Router implements Router2 {
 
@@ -27,7 +24,7 @@ public class Menu2Router implements Router2 {
         switch (menu2){
             case RULE: controller = m2locator.find(Menu2.RULE); break;
             case GAMESTART: controller = m2locator.find(Menu2.GAMESTART); break; //게임시작창으로 넘어가게 해야함 아직 미완
-            default: controller = new MainController();
+            default: controller = new Menu2Controller();
         }
         controller.run();
     }

@@ -1,8 +1,6 @@
 package org.choongang.menu2.controllers;
 
 import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.contents.Menu;
 import org.choongang.menu2.ControllerLocatorM2;
 import org.choongang.menu2.contents.Menu2;
 
@@ -28,8 +26,8 @@ public class Menu2ControllerLocator implements ControllerLocatorM2 {
             return controller;
         }
         switch (menu2){
-            case RULE: controller = new Rule(); break;
-            default: controller = new GameStart();
+            case RULE: controller = new RuleController(); break;
+            default: controller = new GameStartController();
         }
         controllers.put(menu2,controller);
         return controller;
