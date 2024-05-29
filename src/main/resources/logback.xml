@@ -10,5 +10,6 @@
         <appender-ref ref="stdout" />
     </root>
 
-    <logger name="org.choongang.member.entities.Member" level="DEBUG" />
+    <logger name="org.choongang.member.mapper" level="DEBUG" />
+    <logger name="org.choongang.ranking.mapper" level="DEBUG" />
 </configuration>
