@@ -1,8 +1,5 @@
-package org.choongang.template.menu2;
+package org.choongang.template.game;
 
-
-import org.choongang.template.Template;
-import org.choongang.template.Templates;
 
 public class Menu2MainTpl implements TemplateM2{
     @Override

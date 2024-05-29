@@ -1,5 +1,7 @@
 package org.choongang.template;
 
+
+import org.choongang.game.contents.Menu2;
 import org.choongang.global.Menu;
 import org.choongang.global.contents.MainMenu;
 import org.choongang.template.main.MainTpl;
@@ -61,4 +63,7 @@ public class Templates {
         return "=========================================\n";
 
     }
+
+    public void render(Menu2 menu2) {
+    } //수정중
 }
