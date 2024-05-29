@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class PointLog {
     private long seq;
-    private int userId;
+    private String userId;
     private long point;
     private String message;
 }
