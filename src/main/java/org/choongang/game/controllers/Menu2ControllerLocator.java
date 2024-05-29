@@ -1,8 +1,8 @@
-package org.choongang.ready.controllers;
+package org.choongang.game.controllers;
 
 import org.choongang.global.Controller;
-import org.choongang.ready.ControllerLocatorM2;
-import org.choongang.ready.contents.Menu2;
+import org.choongang.game.ControllerLocatorM2;
+import org.choongang.game.contents.Menu2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,9 +25,11 @@ public class Menu2ControllerLocator implements ControllerLocatorM2{
         if(controller != null){
             return controller;
         }
+
         switch (menu2){
             case RULE: controller = new RuleController(); break;
-            default: controller = new GameStartController();
+            case GAMESTART: controller = new GameStartController(); break;
+            default: controller = new MjpController();
         }
         controllers.put(menu2, controller);
         return controller;

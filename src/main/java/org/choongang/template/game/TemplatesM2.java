@@ -1,6 +1,6 @@
-package org.choongang.template.menu2;
+package org.choongang.template.game;
 
-import org.choongang.ready.contents.Menu2;
+import org.choongang.game.contents.Menu2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +32,7 @@ public class TemplatesM2 {
         switch (menu2) {
             case RULE: tpl = new RuleTpl(); break;
             case GAMESTART: tpl = new GameStartTpl(); break;
+            case PLAYGAME: tpl = new MjpTpl(); break;
             default: tpl = new Menu2MainTpl();
         }
         tpls.put(menu2, tpl);
