@@ -1,11 +1,11 @@
 package org.choongang.main;
 
+import org.choongang.game.controllers.RankingControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
-import org.choongang.global.contents.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
-import org.choongang.member.controllers.MemberControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance; //singleton pattern
@@ -20,13 +20,18 @@ public class MainRouter implements Router {
     }
 
     @Override
-    public void change(Menu menu) {
-        ControllerLocator memlocator = MemberControllerLocator.getInstance();
+    public void change(MainMenu mainMenu) {
+
+        ControllerLocator ranklocator = RankingControllerLocator.getInstance();
+        ControllerLocator restartlocator = RankingControllerLocator.getInstance();
+        ControllerLocator exitlocator = RankingControllerLocator.getInstance();
+
 
         Controller controller = null;
-        switch (menu) {
-            case JOIN: controller = memlocator.find(Menu.JOIN); break;
-            case LOGIN: controller = memlocator.find(Menu.LOGIN); break;
+        switch (mainMenu) {
+            case MYRANKING: controller = ranklocator.find(MainMenu.MYRANKING); break;
+            case RESTART: controller = ranklocator.find(MainMenu.GAME); break; // 변경
+            case EXIT: controller = exitlocator.find(MainMenu.EXIT); break;
             default: controller = new MainController();
         }
         controller.run(); //common(), show(), prompt()
@@ -35,7 +40,7 @@ public class MainRouter implements Router {
     @Override
     public void start() {
         while (true) {
-            change(Menu.MAIN); //첫 화면은 메인 컨트롤러 출력 화면
+            change(MainMenu.MAIN); //첫 화면은 메인 컨트롤러 출력 화면
         }
     }
 }

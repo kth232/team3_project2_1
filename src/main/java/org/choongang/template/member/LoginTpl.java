@@ -9,7 +9,7 @@ public class LoginTpl implements Template {
         StringBuffer sb = new StringBuffer(1000);
         sb.append("LOGIN\n");
         sb.append("다음 로그인 항목을 입력하세요\n");
-        sb.append(Templates.getInstance().Line());
+        sb.append(Templates.getInstance().line());
         return sb.toString();
     }
 }
