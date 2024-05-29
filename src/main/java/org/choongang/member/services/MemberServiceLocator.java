@@ -3,7 +3,7 @@ package org.choongang.member.services;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.contents.MainMenu;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
     public static ServiceLocator getInstance() {
@@ -22,6 +22,7 @@ public class MemberServiceLocator extends AbstractServiceLocator {
         switch (mainMenu) {
             case JOIN: service = new JoinService(); break;
             case LOGIN: service = new LoginServie(); break;
+            default:
         }
         return service;
     }

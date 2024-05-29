@@ -3,7 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.contents.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
@@ -21,20 +21,18 @@ public class JoinController extends AbstractController {
     public void prompt() {
         String userId = promptWithValidation("ID(6자리 이상): ", s -> s.length() >= 6);
         String userPw = promptWithValidation("PW(8자리 이상): ", s -> s.length() >= 8);
-        String confirmPw = promptWithValidation("PW 확인: ", s -> {
-            boolean match = s.equals(userPw);
-            if (!match) {
-                System.err.println("\n비밀번호가 일치하지 않습니다.");
-            }
-            return match;
-        });
-        String userNm = promptWithValidation("USER NAME: ", s -> !s.isBlank());
-        //회원가입 처리, 데이터 클래스-값을 객체에 담음
+//        String confirmPw = promptWithValidation("PW 확인: ", s -> {
+//            boolean match = s.equals(userPw);
+//            if (!match) {
+//                System.err.println("\n비밀번호가 일치하지 않습니다.");
+//            }
+//            return match;
+//        });
+//        String userNm = promptWithValidation("USER NAME: ", s -> !s.isBlank());
+//        //회원가입 처리, 데이터 클래스-값을 객체에 담음
         RequestJoin form = RequestJoin.builder()
                 .userId(userId)
                 .userPw(userPw)
-                .confirmPw(confirmPw)
-                .userNm(userNm)
                 .build();
 
         Router router = MainRouter.getInstance();

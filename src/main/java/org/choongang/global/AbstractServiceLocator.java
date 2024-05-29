@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.contents.MainMenu;
 
 import java.util.HashMap;
 import java.util.Map;

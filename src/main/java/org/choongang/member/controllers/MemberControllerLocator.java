@@ -4,13 +4,18 @@ import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.contents.MainMenu;
+import org.choongang.ranking.RankingController;
+
+import java.util.HashMap;
 
 public class MemberControllerLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private MemberControllerLocator() {}
+    private MemberControllerLocator() {
+        controllers = new HashMap<>();
+    }
 
     public static ControllerLocator getInstance() {
         if (instance == null) {
@@ -20,7 +25,6 @@ public class MemberControllerLocator extends AbstractControllerLocator {
         return instance;
     }
 
-
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
@@ -29,14 +33,13 @@ public class MemberControllerLocator extends AbstractControllerLocator {
         }
 
         MainMenu mainMenu = (MainMenu)menu;
-
-        switch(mainMenu) {
+        switch (mainMenu) {
             case JOIN: controller = new JoinController(); break;
-            default: controller = new LoginController();
+            case LOGIN: controller = new LoginController(); break;
+            default:  controller = new RankingController();
+
         }
-
-        controllers.put(menu, controller);
-
+        controllers.put(menu, controller); //기존 것이 있으면 기존 것 사용, 없으면 새로 추가
         return controller;
-    }
+    } 
 }

@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.contents.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
@@ -8,8 +8,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 
 public abstract class AbstractController implements Controller {
-    protected Scanner sc;
-    /* 컨트롤에 따라 입력받는 것이 다를 수 있음 */
+    protected Scanner sc; //컨트롤에 따라 입력받는 것이 다를 수 있음
 
     public AbstractController() {
         sc = new Scanner(System.in);
@@ -18,8 +17,9 @@ public abstract class AbstractController implements Controller {
      * 상단 공통 출력 부분
      */
     public void common() {
-        System.out.println("묵찌빠 게임 ver1.0");
-        System.out.println(Templates.getInstance().doubleLine());
+        System.out.print(Templates.getInstance().doubleLine());
+        System.out.println("( •̀ ω •́ )✧ AI를 이겨라! 묵찌빠 게임 ver1.0.0");
+        System.out.print(Templates.getInstance().doubleLine());
     }
 
     /**
@@ -33,7 +33,7 @@ public abstract class AbstractController implements Controller {
         System.out.print("MENU 선택: ");
         String menu = sc.nextLine();
         if (menu.equals("q") || menu.equals("quit") || menu.equals("exit")) {
-            System.out.println("프로그램을 종료합니다.");
+            System.out.println("게임을 종료합니다.");
             System.out.println(Templates.getInstance().doubleLine());
             System.exit(0); //0: 정상종료/1: 비정상 종료
         }
@@ -76,7 +76,7 @@ public abstract class AbstractController implements Controller {
         switch (menuNo) {
             case 1: mainMenu = MainMenu.JOIN; break; //회원가입, 간단한 조건절일 경우 줄개행 없이 break문 가능
             case 2: mainMenu = MainMenu.LOGIN; break; //로그인
-            case 3: mainMenu = MainMenu.GAME; break;
+            case 3: mainMenu = MainMenu.RANKING; break; //랭킹
             default: mainMenu = MainMenu.MAIN; //메인 화면
         }
         //메뉴 컨트롤러 변경 처리-Router/싱글톤 패턴으로 자원 절약

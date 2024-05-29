@@ -11,5 +11,5 @@
     </root>
 
     <logger name="org.choongang.member.mapper" level="DEBUG" />
-    <logger name="org.choongang.game.mapper" level="DEBUG" />
+    <logger name="org.choongang.ranking.mapper" level="DEBUG" />
 </configuration>
