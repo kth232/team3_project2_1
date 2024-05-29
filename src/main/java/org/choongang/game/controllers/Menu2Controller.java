@@ -1,9 +1,9 @@
-package org.choongang.ready.controllers;
+package org.choongang.game.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.ready.Menu2Router;
-import org.choongang.ready.contents.Menu2;
-import org.choongang.template.menu2.TemplatesM2;
+import org.choongang.game.Menu2Router;
+import org.choongang.game.contents.Menu2;
+import org.choongang.template.game.TemplatesM2;
 
 public class Menu2Controller extends AbstractController{
 /**

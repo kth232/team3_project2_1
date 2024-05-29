@@ -1,7 +1,4 @@
-package org.choongang.template.menu2;
-
-import org.choongang.template.Template;
-import org.choongang.template.Templates;
+package org.choongang.template.game;
 
 public class RuleTpl implements TemplateM2 {
 
