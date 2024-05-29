@@ -14,7 +14,15 @@
     <select id="getList" resultMap="memberMap">
         SELECT * FROM MEMBER
     </select>
-
+    <!-- 회원 개별 조회 -->
+    <select id="get" resultMap="memberMap">
+        SELECT * FROM MEMBER
+        <where>
+            <if test="userId != null">
+                USER_ID=#{userId}
+            </if>
+        </where>
+    </select>
     <select id="getRanking" resultMap="memberMap">
         SELECT * FROM MEMBER
         <where>
@@ -31,6 +39,6 @@
         </selectKey>
 
         INSERT INTO MEMBER (USER_ID, USER_PW, POINT)
-        VALUES {#{userId}, #{userPw}, #{point})
+        VALUES (#{userId}, #{userPw}, #{point})
     </insert>
 </mapper>

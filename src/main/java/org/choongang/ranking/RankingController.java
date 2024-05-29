@@ -1,7 +1,7 @@
 package org.choongang.ranking;
 
 import org.choongang.global.AbstractController;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 

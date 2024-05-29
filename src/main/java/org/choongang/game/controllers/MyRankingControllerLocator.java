@@ -3,17 +3,17 @@ package org.choongang.game.controllers;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.constants.GameMenu;
 
-public class RankingControllerLocator extends AbstractControllerLocator {
+public class MyRankingControllerLocator extends AbstractControllerLocator {
 
-    private static RankingControllerLocator instance;
+    private static MyRankingControllerLocator instance;
 
-    private RankingControllerLocator() {}
+    private MyRankingControllerLocator() {}
 
-    public static RankingControllerLocator getInstance() {
+    public static MyRankingControllerLocator getInstance() {
         if(instance == null) {
-            instance = new RankingControllerLocator() {
+            instance = new MyRankingControllerLocator() {
             };
         }
         return instance;
@@ -27,11 +27,11 @@ public class RankingControllerLocator extends AbstractControllerLocator {
         }
 
         // 게임 서브 메뉴
-        if(menu instanceof Menu) {
-            MainMenu mainMenu = (MainMenu)menu;
-            switch (mainMenu) {
-                case MYRANKING: controller = new RankingController(); break;
-                case RESTART: controller = new RankingController(); break; // 컨트롤러 변경
+        if(menu instanceof GameMenu) {
+            GameMenu gameMenu = (GameMenu)menu;
+            switch (gameMenu) {
+                case MYRANKING: controller = new MyRankingController(); break;
+                case RESTART: controller = new MyRankingController(); break; // 컨트롤러 변경
                 case EXIT: controller = new ExitController(); break;
             }
         } else{ // 게임 메인 메뉴

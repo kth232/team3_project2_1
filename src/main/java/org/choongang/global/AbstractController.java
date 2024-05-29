@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 

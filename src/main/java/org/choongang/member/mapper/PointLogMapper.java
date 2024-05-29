@@ -1,6 +1,5 @@
-package org.choongang.game.mapper;
+package org.choongang.member.mapper;
 
-import org.choongang.game.entities.MyRank;
 import org.choongang.game.entities.PointLog;
 import org.choongang.game.entities.Rank;
 
@@ -9,5 +8,4 @@ import java.util.List;
 public interface PointLogMapper {
     int register(PointLog pointLog);
     List<Rank> getRank();
-    List<MyRank> getUserScore();
 }

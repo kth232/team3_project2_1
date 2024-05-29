@@ -5,9 +5,9 @@
 <mapper namespace="org.choongang.game.mapper.PointLogMapper">
    <insert id="register">
        INSERT INTO POINT_LOG
-        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userNo}, #{point}, #{message}
+        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userNo}, #{point}, #{message})
    </insert>
-    <select id = "getRank">
+    <select id = "getRank" resultType="org.choongang.game.entities.Rank">
         <![CDATA[
         SELECT ROWNUM RANK, d. * FROM (
         SELECT
@@ -17,5 +17,10 @@
         ORDER BY SUM(a.POINT) DESC
         ) d WHERE ROWNUM <= 10
         ]]>
+    </select>
+
+    <select id="getUserScore" resultType="org.choongang.game.entities.MyRank">
+        SELECT COUNT(*) gamecount, m.USER_ID userId, SUM(p.POINT) userscore FROM POINT_LOG p
+            JOIN MEMBER m ON p.USER_NO = m.USER_NO GROUP BY m.USER_ID ORDER BY SUM(p.POINT) DESC
     </select>
 </mapper>

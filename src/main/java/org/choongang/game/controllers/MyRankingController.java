@@ -5,7 +5,7 @@ import org.choongang.global.constants.GameMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
-public class RankingController extends AbstractController {
+public class MyRankingController extends AbstractController {
 
     @Override
     public void show() {

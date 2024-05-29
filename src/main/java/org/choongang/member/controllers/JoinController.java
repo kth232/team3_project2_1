@@ -3,7 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;

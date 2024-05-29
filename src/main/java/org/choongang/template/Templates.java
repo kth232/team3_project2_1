@@ -1,9 +1,10 @@
 package org.choongang.template;
 
 
+import com.sun.tools.javac.Main;
 import org.choongang.game.contents.Menu2;
 import org.choongang.global.Menu;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
@@ -29,19 +30,21 @@ public class Templates {
     }
 
     // render 메서드 오버로드 (hook이 없는 경우 사용할 수 있게)
-    public void render(MainMenu mainMenu){
-        render(mainMenu, null);
+    public void render(Menu menu){
+        render(menu, null);
     }
 
-    public void render(MainMenu mainMenu, Supplier<String> hook) {
-        System.out.println(find(mainMenu, hook).getTpl()); //각 메뉴마다 해당 tpl 가져옴
+    public void render(Menu menu, Supplier<String> hook) {
+        System.out.println(find(menu, hook).getTpl()); //각 메뉴마다 해당 tpl 가져옴
     }
 
-    public Template find(MainMenu mainMenu, Supplier<String> hook) {
-        Template tpl = tpls.get(mainMenu);
+    public Template find(Menu menu, Supplier<String> hook) {
+        Template tpl = tpls.get(menu);
         if (tpl != null) {
             return tpl;
         }
+        MainMenu mainMenu = (MainMenu) menu;
+
         switch (mainMenu) {
             case JOIN: tpl = new JoinTpl(); break;
             case LOGIN: tpl = new LoginTpl(); break;
@@ -52,7 +55,7 @@ public class Templates {
         tpl.addHook(hook);
         }
 
-        tpls.put(mainMenu, tpl);
+        tpls.put(menu, tpl);
         return tpl;
     }
     public String Line() { //라인

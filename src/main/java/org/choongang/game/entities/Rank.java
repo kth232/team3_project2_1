@@ -1,5 +1,4 @@
 package org.choongang.game.entities;
-
 import lombok.Data;
 
 @Data

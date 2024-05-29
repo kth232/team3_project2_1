@@ -12,4 +12,5 @@
 
     <logger name="org.choongang.member.mapper" level="DEBUG" />
     <logger name="org.choongang.ranking.mapper" level="DEBUG" />
+    <logger name="org.choongang.game.mapper.MyRankingMapper.xml" level="DEBUG" />
 </configuration>

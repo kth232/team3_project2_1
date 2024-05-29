@@ -3,7 +3,7 @@ package org.choongang.member.services;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
     public static ServiceLocator getInstance() {

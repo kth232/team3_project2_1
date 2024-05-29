@@ -2,12 +2,11 @@ package org.choongang.game.mapper;
 
 import org.choongang.game.entities.MyRank;
 import org.choongang.game.entities.PointLog;
-import org.choongang.game.entities.Rank;
 
 import java.util.List;
 
-public interface PointLogMapper {
+public interface MyRankingMapper {
     int register(PointLog pointLog);
-    List<Rank> getRank();
     List<MyRank> getUserScore();
+
 }
