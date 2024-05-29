@@ -2,7 +2,7 @@ package org.choongang.ready.controllers;
 
 import org.choongang.global.Controller;
 import org.choongang.ready.ControllerLocatorM2;
-import org.choongang.ready.contents.Menu2;
+import org.choongang.ready.contents.ReadyMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
 public class Menu2ControllerLocator implements ControllerLocatorM2{
 
     private static ControllerLocatorM2 instance;
-    private Map<Menu2, Controller> controllers;
+    private Map<ReadyMenu, Controller> controllers;
 
     private Menu2ControllerLocator(){ controllers = new HashMap<>();}
     public static ControllerLocatorM2 getInstance() {
@@ -20,16 +20,16 @@ public class Menu2ControllerLocator implements ControllerLocatorM2{
         return instance;
     }
     @Override
-    public Controller find(Menu2 menu2) {
-        Controller controller = controllers.get(menu2);
+    public Controller find(ReadyMenu readyMenu) {
+        Controller controller = controllers.get(readyMenu);
         if(controller != null){
             return controller;
         }
-        switch (menu2){
+        switch (readyMenu){
             case RULE: controller = new RuleController(); break;
             default: controller = new GameStartController();
         }
-        controllers.put(menu2, controller);
+        controllers.put(readyMenu, controller);
         return controller;
     }
 }

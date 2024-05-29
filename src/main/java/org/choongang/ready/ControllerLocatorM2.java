@@ -1,8 +1,8 @@
 package org.choongang.ready;
 
 import org.choongang.global.Controller;
-import org.choongang.ready.contents.Menu2;
+import org.choongang.ready.contents.ReadyMenu;
 
 public interface ControllerLocatorM2 {
-    Controller find(Menu2 menu2);
+    Controller find(ReadyMenu readyMenu);
 }

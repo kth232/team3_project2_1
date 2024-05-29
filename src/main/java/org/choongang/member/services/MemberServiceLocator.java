@@ -21,7 +21,7 @@ public class MemberServiceLocator extends AbstractServiceLocator {
         }
         switch (mainMenu) {
             case JOIN: service = new JoinService(); break;
-            case LOGIN: service = new LoginServie(); break;
+            case LOGIN: service = new LoginService(); break;
             default:
         }
         return service;

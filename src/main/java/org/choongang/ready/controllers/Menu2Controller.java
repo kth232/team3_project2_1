@@ -2,8 +2,9 @@ package org.choongang.ready.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.ready.Menu2Router;
-import org.choongang.ready.contents.Menu2;
-import org.choongang.template.menu2.TemplatesM2;
+import org.choongang.ready.contents.ReadyMenu;
+import org.choongang.template.Templates;
+import org.choongang.template.ready.TemplatesM2;
 
 public class Menu2Controller extends AbstractController{
 /**
@@ -11,13 +12,18 @@ public class Menu2Controller extends AbstractController{
  */
     @Override
     public void show() {
-        TemplatesM2.getInstance().render(Menu2.MAIN2);
+        TemplatesM2.getInstance().render(ReadyMenu.MAIN2);
     }
 
     @Override
     public void prompt() {
         System.out.print("MENU 선택!!: ");
         String menu = sc.nextLine();
+        if (menu.equals("q") || menu.equals("quit") || menu.equals("exit")) {
+            System.out.println("게임을 종료합니다.");
+            System.out.println(Templates.getInstance().doubleLine());
+            System.exit(0); //0: 정상종료/1: 비정상 종료
+        }
         try {
             int m = Integer.parseInt(menu);
             change(m); //라우터를 통해 메뉴 변경
@@ -27,17 +33,20 @@ public class Menu2Controller extends AbstractController{
         }
     }
     private void change(int menuNo) {
-        Menu2 menu2 = null;
+        ReadyMenu readyMenu = null;
         switch (menuNo) {
-            case 3:
-                menu2 = Menu2.RULE;
+            case 1:
+                readyMenu = ReadyMenu.RULE;
                 break; //
-            case 4:
-                menu2 = Menu2.GAMESTART;
+            case 2:
+                readyMenu = ReadyMenu.GAMESTART;
                 break; //
             default:
-                menu2 = Menu2.MAIN2; //메인 화면
+                //readyMenu = ReadyMenu.MAIN2; //메인 화면
+                System.err.println("1번과 2번 중 입력해주세요.");
+                prompt();
         }
-        Menu2Router.getInstance().change(menu2);
+        Menu2Router.getInstance().change(readyMenu);
+
     }
 }

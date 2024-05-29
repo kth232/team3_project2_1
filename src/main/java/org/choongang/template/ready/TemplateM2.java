@@ -1,4 +1,4 @@
-package org.choongang.template.menu2;
+package org.choongang.template.ready;
 
 public interface TemplateM2 {
     String getTpl();

@@ -1,7 +1,7 @@
 package org.choongang.ready;
 
 import org.choongang.global.Controller;
-import org.choongang.ready.contents.Menu2;
+import org.choongang.ready.contents.ReadyMenu;
 import org.choongang.ready.controllers.Menu2Controller;
 import org.choongang.ready.controllers.Menu2ControllerLocator;
 
@@ -17,13 +17,13 @@ public class Menu2Router implements Router2 {
         return instance;
     }
     @Override
-    public void change(Menu2 menu2) {
+    public void change(ReadyMenu readyMenu) {
         ControllerLocatorM2 m2locator = Menu2ControllerLocator.getInstance();
 
         Controller controller = null;
-        switch (menu2){
-            case RULE: controller = m2locator.find(Menu2.RULE); break;
-            case GAMESTART: controller = m2locator.find(Menu2.GAMESTART); break; //게임시작창으로 넘어가게 해야함 아직 미완
+        switch (readyMenu){
+            case RULE: controller = m2locator.find(ReadyMenu.RULE); break;
+            case GAMESTART: controller = m2locator.find(ReadyMenu.GAMESTART); break; //게임시작창으로 넘어가게 해야함 아직 미완
             default: controller = new Menu2Controller(); //메뉴2 메인화면으로
         }
         controller.run();
@@ -32,7 +32,7 @@ public class Menu2Router implements Router2 {
     @Override
     public void start() {
         while (true) {
-            change(Menu2.MAIN2);
+            change(ReadyMenu.MAIN2);
         }
     }
 }
