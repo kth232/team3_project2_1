@@ -1,4 +1,4 @@
-package org.choongang.menu2.contents;
+package org.choongang.ready.contents;
 
 public enum Menu2 {
     MAIN2, //메인 화면

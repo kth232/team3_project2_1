@@ -1,8 +1,8 @@
-package org.choongang.menu2.controllers;
+package org.choongang.ready.controllers;
 
 import org.choongang.global.Controller;
-import org.choongang.menu2.ControllerLocatorM2;
-import org.choongang.menu2.contents.Menu2;
+import org.choongang.ready.ControllerLocatorM2;
+import org.choongang.ready.contents.Menu2;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -6,9 +6,9 @@ import org.choongang.global.Service;
 import org.choongang.global.contents.Menu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
-import org.choongang.menu2.Menu2Router;
-import org.choongang.menu2.Router2;
-import org.choongang.menu2.contents.Menu2;
+import org.choongang.ready.Menu2Router;
+import org.choongang.ready.Router2;
+import org.choongang.ready.contents.Menu2;
 import org.choongang.template.Templates;
 
 /**

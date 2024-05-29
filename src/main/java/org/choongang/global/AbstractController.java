@@ -2,8 +2,6 @@ package org.choongang.global;
 
 import org.choongang.global.contents.Menu;
 import org.choongang.main.MainRouter;
-import org.choongang.menu2.Menu2Router;
-import org.choongang.menu2.contents.Menu2;
 import org.choongang.template.Templates;
 
 import java.util.Scanner;

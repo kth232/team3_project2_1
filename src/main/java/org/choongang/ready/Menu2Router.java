@@ -1,9 +1,9 @@
-package org.choongang.menu2;
+package org.choongang.ready;
 
 import org.choongang.global.Controller;
-import org.choongang.menu2.contents.Menu2;
-import org.choongang.menu2.controllers.Menu2Controller;
-import org.choongang.menu2.controllers.Menu2ControllerLocator;
+import org.choongang.ready.contents.Menu2;
+import org.choongang.ready.controllers.Menu2Controller;
+import org.choongang.ready.controllers.Menu2ControllerLocator;
 
 public class Menu2Router implements Router2 {
     private static Router2 instance;

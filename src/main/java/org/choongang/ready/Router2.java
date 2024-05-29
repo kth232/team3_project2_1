@@ -1,6 +1,6 @@
-package org.choongang.menu2;
+package org.choongang.ready;
 
-import org.choongang.menu2.contents.Menu2;
+import org.choongang.ready.contents.Menu2;
 
 /**
  * 사용자가 입력한 메뉴 번호, 문구->해당하는 컨트롤러로 연결
