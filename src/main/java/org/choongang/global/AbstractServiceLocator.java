@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.contents.Menu;
+import org.choongang.global.contents.MainMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import java.util.Map;
 public abstract class AbstractServiceLocator implements ServiceLocator{
     protected static ServiceLocator instance; //변수만 공유
 
-    protected Map<Menu, Service> services;
+    protected Map<MainMenu, Service> services;
 
     protected AbstractServiceLocator() {
         services = new HashMap<>();

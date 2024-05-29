@@ -3,5 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.member.mapper.MemberMapper">
+    <resultMap id="memberMap" type="org.choongang.member.entities.Member">
+        <result column="USER_ID" property="userId"/>
+        <result column="USER_PW" property="userPw"/>
+        <result column="POINT" property="point"/>
+        <result column="REG_DT" property="regDt"/>
+        <result column="MOD_DT" property="modDt"/>
+    </resultMap>
 
+    <select id="getList" resultMap="memberMap">
+        SELECT * FROM MEMBER
+    </select>
+
+    <select id="getRanking" resultMap="memberMap">
+        SELECT * FROM MEMBER
+        <where>
+            <if test="userId != null">
+                USER_ID = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 회원 등록 -->
+    <insert id="register">
+        <selectKey keyProperty="userId" order="BEFORE" resultType="long">
+            SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT INTO MEMBER (USER_ID, USER_PW, POINT)
+        VALUES {#{userId}, #{userPw}, #{point})
+    </insert>
 </mapper>
