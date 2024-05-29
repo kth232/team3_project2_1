@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.game.Menu2Router;
 import org.choongang.game.Router2;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.contents.MainMenu;
@@ -34,7 +35,7 @@ public class LoginController extends AbstractController {
 
         Router router = MainRouter.getInstance();
         Router2 router2 = Menu2Router.getInstance();
-        
+
         try {
             Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);

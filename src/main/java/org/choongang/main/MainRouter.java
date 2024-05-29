@@ -2,10 +2,13 @@ package org.choongang.main;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
 import org.choongang.global.contents.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
+
+import static org.choongang.global.contents.MainMenu.*;
 
 public class MainRouter implements Router {
     private static Router instance; //singleton pattern
@@ -20,14 +23,17 @@ public class MainRouter implements Router {
     }
 
     @Override
-    public void change(MainMenu mainMenu) {
+    public void change(Menu menu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
         Controller controller = null;
-        switch (mainMenu) {
-            case JOIN: controller = memlocator.find(MainMenu.JOIN); break;
-            case LOGIN: controller = memlocator.find(MainMenu.LOGIN); break;
-            case RANKING: controller = memlocator.find(MainMenu.RANKING); break;
-            default: controller = new MainController();
+        if (menu.equals(JOIN)) {
+            controller = memlocator.find(JOIN);
+        } else if (menu.equals(LOGIN)) {
+            controller = memlocator.find(LOGIN);
+        } else if (menu.equals(RANKING)) {
+            controller = memlocator.find(RANKING);
+        } else {
+            controller = new MainController();
         }
 
         controller.run(); //common(), show(), prompt()

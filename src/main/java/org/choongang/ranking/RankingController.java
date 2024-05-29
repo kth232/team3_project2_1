@@ -6,6 +6,7 @@ import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
 public class RankingController extends AbstractController {
+
     @Override
     public void show() {
         Templates.getInstance().render(MainMenu.RANKING,
