@@ -1,7 +1,6 @@
 package org.choongang.template.menu2;
 
-import org.choongang.menu2.contents.Menu2;
-import org.choongang.template.Template;
+import org.choongang.ready.contents.Menu2;
 
 import java.util.HashMap;
 import java.util.Map;

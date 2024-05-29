@@ -1,8 +1,7 @@
-package org.choongang.menu2.controllers;
+package org.choongang.ready.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.menu2.contents.Menu2;
-import org.choongang.template.Templates;
+import org.choongang.ready.contents.Menu2;
 import org.choongang.template.menu2.TemplatesM2;
 
 public class GameStartController extends AbstractController {

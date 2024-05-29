@@ -1,10 +1,9 @@
 package org.choongang.member.controllers;
 
-import com.sun.tools.javac.Main;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.contents.Menu;
+import org.choongang.global.contents.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
@@ -15,7 +14,7 @@ import org.choongang.template.Templates;
 public class LoginController extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.LOGIN);
+        Templates.getInstance().render(MainMenu.LOGIN);
     }
 
     @Override
@@ -33,15 +32,16 @@ public class LoginController extends AbstractController {
         Router router = MainRouter.getInstance();
         
         try {
-            Service service = MemberServiceLocator.getInstance().find(Menu.LOGIN);
+            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
 
-            //로그인 성공 시->메인 화면으로 이동
-            router.change(Menu.MAIN);
+
+            //로그인 성공 시->Menu2
+            //router.change(Menu2.Main);
         } catch (RuntimeException e) {
             //로그인 실패 시 -> 로그인 화면으로 이동
             System.err.println(e.getMessage());
-            router.change(Menu.LOGIN);
+            router.change(MainMenu.LOGIN);
         }
     } //prompt 재정의
 }

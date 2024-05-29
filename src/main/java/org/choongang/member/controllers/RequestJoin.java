@@ -7,7 +7,6 @@ import lombok.Data;
 public class RequestJoin { //사용자 요청
     private String userId;
     private String userPw;
-    private String confirmPw;
-    private String userNm;
-
+    //private String confirmPw;
+    //private String userNm;
 }
