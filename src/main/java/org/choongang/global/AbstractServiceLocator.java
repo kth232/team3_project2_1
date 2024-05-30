@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class AbstractServiceLocator implements ServiceLocator{
     protected static ServiceLocator instance; //변수만 공유
 
-    protected Map<MainMenu, Service> services;
+    protected Map<Menu, Service> services;
 
     protected AbstractServiceLocator() {
         services = new HashMap<>();

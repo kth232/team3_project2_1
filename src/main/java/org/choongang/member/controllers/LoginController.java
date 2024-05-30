@@ -34,7 +34,7 @@ public class LoginController extends AbstractController {
 
         Router router = MainRouter.getInstance();
         Router2 router2 = Menu2Router.getInstance();
-        
+
         try {
             Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);

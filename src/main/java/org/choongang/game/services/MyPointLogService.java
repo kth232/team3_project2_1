@@ -6,6 +6,5 @@ import org.choongang.global.Service;
 public class MyPointLogService implements Service<MyPointLog> {
     @Override
     public void process(MyPointLog form) {
-
     }
 }

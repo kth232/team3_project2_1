@@ -34,7 +34,7 @@ public class MyRankingControllerLocator extends AbstractControllerLocator {
                 case RESTART: controller = new MyRankingController(); break; // 컨트롤러 변경
                 case EXIT: controller = new ExitController(); break;
             }
-        } else{ // 게임 메인 메뉴
+        } else{
             System.out.println("정확한 메뉴명을 입력해주세요");
         }
 
