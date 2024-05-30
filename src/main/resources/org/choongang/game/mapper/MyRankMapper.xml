@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.game.mapper.MyRankMapper">
+
+    <insert id="myPointRegister">
+        INSERT INTO POINT_LOG
+        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userId}, #{point})
+    </insert>
+
+    <select id = "getRank" resultType="org.choongang.game.entities.MyPointLog">
+        <![CDATA[
+         SELECT ROWNUM RANK, d.* FROM (
+            SELECT
+                SUM(a.POINT) TOTAL, b.USER_ID userId, b.USER_NM userNm
+            FROM POINT_LOG a JOIN MEMBER b ON a.USER_NO = b.USER_NO
+            GROUP BY b.USER_ID, b.USER_NM
+            ORDER BY SUM(a.POINT) DESC
+        ) d WHERE ROWNUM <= 10
+
+        ]]>
+        <!--쿼리문 수정해야 함!!-->
+    </select>
+
+    <!--    <select id="getUserScore" resultType="org.choongang.game.entities.MyPointLog">-->
+    <!--        SELECT COUNT(*) gamecount, m.USER_ID userId, SUM(p.POINT) userscore FROM POINT_LOG p-->
+    <!--            JOIN MEMBER m ON p.USER_NO = m.USER_NO GROUP BY m.USER_ID ORDER BY SUM(p.POINT) DESC-->
+    <!--    </select>-->
+</mapper>

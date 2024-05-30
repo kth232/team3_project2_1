@@ -32,6 +32,22 @@ public class MainRouter implements Router {
             controller = memlocator.find(LOGIN);
         } else if (menu.equals(RANKING)) {
             controller = memlocator.find(RANKING);
+        }else if (menu.equals(MAIN2)){
+            controller = memlocator.find(MAIN2);
+        }else if (menu.equals(RULE)){
+            controller = memlocator.find(RULE);
+        }else if (menu.equals(GAMESTART)){
+            controller = memlocator.find(GAMESTART);
+        }else if (menu.equals(PLAYGAME)){
+            controller = memlocator.find(PLAYGAME);
+        }else if (menu.equals(MAIN3)){
+            controller = memlocator.find(MAIN3);
+        }else if (menu.equals(MYRANKING)){
+            controller = memlocator.find(MYRANKING);
+        }else if (menu.equals(RESTART)){
+            controller = memlocator.find(RESTART);
+        }else if (menu.equals(EXIT)){
+            controller = memlocator.find(EXIT);
         } else {
             controller = new MainController();
         }

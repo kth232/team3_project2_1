@@ -1,7 +1,11 @@
 package org.choongang.template.game;
 
 
-public class Menu2MainTpl implements TemplateM2{
+import org.choongang.template.Template;
+
+import java.util.function.Supplier;
+
+public class Menu2MainTpl implements TemplateM2, Template {
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(2000); //버퍼 생성
@@ -12,5 +16,10 @@ public class Menu2MainTpl implements TemplateM2{
                 .append(TemplatesM2.getInstance().Line());
 
         return sb.toString();
+    }
+
+    @Override
+    public void addHook(Supplier<String> supplier) {
+        Template.super.addHook(supplier);
     }
 }
