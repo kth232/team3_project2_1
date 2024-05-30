@@ -5,23 +5,23 @@
 <mapper namespace="org.choongang.game.mapper.MyPointLogMapper">
    <insert id="myPointRegister">
        INSERT INTO POINT_LOG
-        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userNo}, #{point}, #{message})
+        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userId}, #{point}, #{message})
    </insert>
 
-    <select id = "getRank" resultType="org.choongang.game.entities.MyPointLog">
+    <select id="getRank">
         <![CDATA[
-         SELECT ROWNUM RANK, d.* FROM (
+        SELECT ROWNUM RANK, d.* FROM (
             SELECT
-                SUM(a.POINT) TOTAL, b.USER_ID userId, b.USER_NM userNm
-            FROM POINT_LOG a JOIN MEMBER b ON a.USER_NO = b.USER_NO
-            GROUP BY b.USER_ID, b.USER_NM
+                SUM(a.POINT) + NVL(b.POINT, 0) TOTAL, b.USER_ID userId
+            FROM POINT_LOG a JOIN MEMBER b ON a.USER_ID = b.USER_ID
+            GROUP BY b.USER_ID, b.POINT
             ORDER BY SUM(a.POINT) DESC
-        ) d WHERE ROWNUM <= 10
+        ) d WHERE ROWNUM <= 3
         ]]>
     </select>
 
-    <select id="getUserScore" resultType="org.choongang.game.entities.MyPointLog">
-        SELECT COUNT(*) gamecount, m.USER_ID userId, SUM(p.POINT) userscore FROM POINT_LOG p
-            JOIN MEMBER m ON p.USER_NO = m.USER_NO GROUP BY m.USER_ID ORDER BY SUM(p.POINT) DESC
-    </select>
+<!--    <select id="getUserScore" resultType="org.choongang.game.entities.MyPointLog">-->
+<!--        SELECT COUNT(*) gamecount, m.USER_ID userId, SUM(p.POINT) userscore FROM POINT_LOG p-->
+<!--            JOIN MEMBER m ON p.USER_NO = m.USER_NO GROUP BY m.USER_ID ORDER BY SUM(p.POINT) DESC-->
+<!--    </select>-->
 </mapper>
