@@ -7,4 +7,6 @@ public class MyRank {
     private String userId;
     private int gamecount;
     private int userscore;
+    private int rank;
+    private long total;
 }

@@ -22,7 +22,6 @@
     </environments>
     <mappers>
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml" />
-        <mapper resource="org/choongang/game/mapper/PointLogMapper.xml" />
-        <mapper resource="org/choongang/game/mapper/MyRankingMapper.xml" />
+        <mapper resource="org/choongang/game/mapper/MyPointLogMapper.xml" />
     </mappers>
 </configuration>

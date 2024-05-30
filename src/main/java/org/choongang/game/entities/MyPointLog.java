@@ -6,9 +6,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PointLog {
+public class MyPointLog {
     private long seq;
     private long userNo;
     private long point;
-    private String message;
-}
+    private String message; }
