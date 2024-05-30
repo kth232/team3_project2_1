@@ -30,18 +30,19 @@ public class RuleController extends AbstractController {
             change(m); //라우터를 통해 메뉴 변경
         } catch (Exception e) {
             //e.printStackTrace();
-            System.out.println("메뉴는 [숫자]로 입력해주세요.");
+            System.err.println("메뉴는 [숫자]로 입력해주세요.\n5번과 (q/quit/exit) 중 선택해주세요.");
+            Menu2Router.getInstance().change(Menu2.RULE);
         }
 
     } //prompt 재정의
-    private void change(int menuNo) {
+    private void change(int menuNo) throws Exception {
         Menu2 menu2 = null;
         switch (menuNo) {
             case 5:
                 menu2 = Menu2.PLAYGAME;
                 break; //
             default:
-                prompt();
+                throw new Exception();
         }
         Menu2Router.getInstance().change(menu2);
     }

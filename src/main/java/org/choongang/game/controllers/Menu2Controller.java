@@ -23,10 +23,11 @@ public class Menu2Controller extends AbstractController{
             change(m); //라우터를 통해 메뉴 변경
         } catch (Exception e) {
             //e.printStackTrace();
-            System.out.println("메뉴는 [숫자]로 입력해주세요.");
+            System.err.println("메뉴는 [숫자]로 입력해주세요.\n3번과 4번 중 선택해주세요.");
+            Menu2Router.getInstance().change(Menu2.MAIN2);
         }
     }
-    private void change(int menuNo) {
+    private void change(int menuNo) throws Exception {
         Menu2 menu2 = null;
         switch (menuNo) {
             case 3:
@@ -36,7 +37,7 @@ public class Menu2Controller extends AbstractController{
                 menu2 = Menu2.GAMESTART;
                 break; //
             default:
-                menu2 = Menu2.MAIN2; //메인 화면
+                throw new Exception();
         }
         Menu2Router.getInstance().change(menu2);
     }
