@@ -36,7 +36,8 @@ public class MemberControllerLocator extends AbstractControllerLocator {
         switch (mainMenu) {
             case JOIN: controller = new JoinController(); break;
             case LOGIN: controller = new LoginController(); break;
-            default:  controller = new RankingController();
+            default:
+                controller = new RankingController();
 
         }
         controllers.put(menu, controller); //기존 것이 있으면 기존 것 사용, 없으면 새로 추가

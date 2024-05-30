@@ -18,7 +18,7 @@ public class RuleController extends AbstractController {
 
     @Override
     public void prompt() {
-        System.out.print("게임시작(4) or 종료(q): ");
+        System.out.print("게임시작(5) or 종료(q): ");
         String menu = sc.nextLine();
         if (menu.equals("q") || menu.equals("quit") || menu.equals("exit")) {
             System.out.println("프로그램을 종료합니다.");
@@ -30,21 +30,19 @@ public class RuleController extends AbstractController {
             change(m); //라우터를 통해 메뉴 변경
         } catch (Exception e) {
             //e.printStackTrace();
-            System.out.println("메뉴는 [숫자]로 입력해주세요.");
+            System.err.println("메뉴는 [숫자]로 입력해주세요.\n5번과 (q/quit/exit) 중 선택해주세요.");
+            Menu2Router.getInstance().change(Menu2.RULE);
         }
 
-        Router2 router = Menu2Router.getInstance();
-        router.change(Menu2.GAMESTART);
-        //추후 게임화면으로 넘어가는 라우터 연결
     } //prompt 재정의
-    private void change(int menuNo) {
+    private void change(int menuNo) throws Exception {
         Menu2 menu2 = null;
         switch (menuNo) {
-            case 4:
-                menu2 = Menu2.GAMESTART;
+            case 5:
+                menu2 = Menu2.PLAYGAME;
                 break; //
             default:
-                prompt();
+                throw new Exception();
         }
         Menu2Router.getInstance().change(menu2);
     }

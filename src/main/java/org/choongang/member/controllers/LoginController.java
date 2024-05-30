@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.game.Menu2Router;
 import org.choongang.game.Router2;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.constants.MainMenu;

@@ -6,7 +6,7 @@
 
     <insert id="register">
         INSERT INTO POINT_LOG
-            VALUES(SEQ_POINT_LOG.NEXTVAL, #{USER_ID}, #{POINT}, #{MESSAGE})
+            VALUES(SEQ_POINT_LOG.NEXTVAL, #{userId}, #{point}, #{message})
     </insert>
 
     <!--랭킹 가져오는 쿼리 - 포인트 많은 순으로 정렬/인라인 뷰 형태로-->
@@ -18,7 +18,7 @@
             FROM POINT_LOG a JOIN MEMBER b ON a.USER_ID = b.USER_ID
             GROUP BY b.USER_ID
             ORDER BY SUM(a.POINT) DESC
-        ) d WHERE ROWNUM <= 10
+        ) d WHERE ROWNUM <= 3
         ]]>
     </select>
 </mapper>

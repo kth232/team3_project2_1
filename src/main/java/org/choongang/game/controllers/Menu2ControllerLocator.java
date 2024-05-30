@@ -26,6 +26,7 @@ public class Menu2ControllerLocator implements ControllerLocatorM2{
             return controller;
         }
 
+
         switch (menu2){
             case RULE: controller = new RuleController(); break;
             case GAMESTART: controller = new GameStartController(); break;
