@@ -28,9 +28,7 @@ public class GameStartController extends AbstractController {
             //e.printStackTrace();
             System.out.println("메뉴는 [숫자]로 입력해주세요.");
         }
-        Router2 router = Menu2Router.getInstance();
-        router.change(Menu2.PLAYGAME);
-        //추후 게임화면으로 넘어가는 라우터 연결
+
     } //prompt 재정의
     private void change(int menuNo) {
         Menu2 menu2 = null;
