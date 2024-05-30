@@ -1,26 +1,23 @@
-package org.choongang.ready.controllers;
+package org.choongang.game.controllers;
 
+import org.choongang.game.Menu2Router;
+import org.choongang.game.Router2;
+import org.choongang.game.contents.Menu2;
 import org.choongang.global.AbstractController;
-import org.choongang.ready.Menu2Router;
-import org.choongang.ready.contents.ReadyMenu;
 import org.choongang.template.Templates;
-import org.choongang.template.ready.TemplatesM2;
+import org.choongang.template.game.TemplatesM2;
 
-public class Menu2Controller extends AbstractController{
-/**
- * 메뉴2 메인 컨트롤러
- */
+public class GameStartController extends AbstractController {
     @Override
     public void show() {
-        TemplatesM2.getInstance().render(ReadyMenu.MAIN2);
+        TemplatesM2.getInstance().render(Menu2.GAMESTART);
     }
-
     @Override
     public void prompt() {
-        System.out.print("MENU 선택!!: ");
+        System.out.print("게임시작(5) or 종료(q): ");
         String menu = sc.nextLine();
         if (menu.equals("q") || menu.equals("quit") || menu.equals("exit")) {
-            System.out.println("게임을 종료합니다.");
+            System.out.println("프로그램을 종료합니다.");
             System.out.println(Templates.getInstance().doubleLine());
             System.exit(0); //0: 정상종료/1: 비정상 종료
         }
@@ -31,22 +28,19 @@ public class Menu2Controller extends AbstractController{
             //e.printStackTrace();
             System.out.println("메뉴는 [숫자]로 입력해주세요.");
         }
-    }
+        Router2 router = Menu2Router.getInstance();
+        router.change(Menu2.PLAYGAME);
+        //추후 게임화면으로 넘어가는 라우터 연결
+    } //prompt 재정의
     private void change(int menuNo) {
-        ReadyMenu readyMenu = null;
+        Menu2 menu2 = null;
         switch (menuNo) {
-            case 1:
-                readyMenu = ReadyMenu.RULE;
-                break; //
-            case 2:
-                readyMenu = ReadyMenu.GAMESTART;
+            case 5:
+                menu2 = Menu2.PLAYGAME;
                 break; //
             default:
-                //readyMenu = ReadyMenu.MAIN2; //메인 화면
-                System.err.println("1번과 2번 중 입력해주세요.");
                 prompt();
         }
-        Menu2Router.getInstance().change(readyMenu);
-
+        Menu2Router.getInstance().change(menu2);
     }
 }
