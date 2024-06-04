@@ -6,7 +6,10 @@ import org.choongang.game.entities.MyRank;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Service;
 import org.choongang.global.constants.GameMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
+import org.choongang.member.services.MemberServiceLocator;
+import org.choongang.ranking.entities.Rank;
 import org.choongang.template.Templates;
 
 import java.util.List;
@@ -17,9 +20,16 @@ public class MyRankingController extends AbstractController {
     @Override
     public void show() {
         Templates.getInstance().render(GameMenu.MYRANKING, () -> {
-            return "처리된 랭킹 목록\n";
+            return "    _ _ _처리된 랭킹 목록_ _ _\n";
         });
         // MainRouter.getInstance().change(GameMenu.MYRANKING);
+        Service<List<Rank>> service = MemberServiceLocator.getInstance().find(MainMenu.RANKING);
+
+        List<Rank> ranks = service.process();
+        String ranking = ranks.stream()
+                .map(r -> String.format("%d등 - (%s)/%d점", r.getRank(), r.getUserId(), r.getTotal()))
+                .collect(Collectors.joining("\n"));
+        Templates.getInstance().render(MainMenu.RANKING,() -> ranking);
     }
 
 
@@ -27,7 +37,7 @@ public class MyRankingController extends AbstractController {
 
     public void prompt() {
         while (true) {
-            System.out.print("1. 다시하기\n 2. 종료\n\n");
+            System.out.print("1. 다시하기\n2. 종료\n\n");
             System.out.print("MENU 선택: ");
             restart = sc.next();
 

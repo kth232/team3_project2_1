@@ -3,7 +3,7 @@ package org.choongang.ranking.mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
@@ -33,7 +33,7 @@ public class PointLogMapperTest {
 
         for (int i = 0; i < 15; i++) {
             RequestJoin form = RequestJoin.builder()
-                    .userId("u" + System.currentTimeMillis())
+                    .userId("play_user" + i)
                     .userPw("12345678")
                     .build();
             joinService.process(form);

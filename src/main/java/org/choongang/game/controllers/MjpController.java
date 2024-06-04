@@ -189,6 +189,7 @@ public class MjpController extends AbstractController {
                     break;
                 case 3:
                     System.out.printf("당신의 점수는 [%d]입니다.%n", userRating);
+
                     System.out.println("최종 스코어: 유저 승리 횟수: "+ userWins +"/ PC 승리 횟수: "+ comWins);
 
                     System.exit(0);
