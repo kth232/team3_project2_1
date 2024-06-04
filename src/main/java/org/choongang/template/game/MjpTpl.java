@@ -7,7 +7,7 @@ public class MjpTpl implements Template{
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(1000);
-        sb.append("묵찌빠\n");
+        sb.append("묵찌빠 GAME!\n");
         sb.append(Templates.getInstance().Line());
 
         return sb.toString();

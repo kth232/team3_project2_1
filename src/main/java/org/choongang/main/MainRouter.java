@@ -26,21 +26,19 @@ public class MainRouter implements Router {
         //ControllerLocator myrank = MyRankingControllerLocator.getInstance();
         Controller controller = null;
 
-
-        if (menu instanceof MainMenu) {
-            switch (menu) {
-                case JOIN:
-                    controller = memlocator.find(MainMenu.JOIN);
-                    break;
-                case LOGIN:
-                    controller = memlocator.find(MainMenu.LOGIN);
-                    break;
-                case RANKING:
-                    controller = memlocator.find(MainMenu.RANKING);
-                    break;
-                default:
-                    controller = new MainController();
-            }
+        MainMenu mainMenu = (MainMenu) menu;
+        switch (mainMenu) {
+            case JOIN:
+                controller = memlocator.find(MainMenu.JOIN);
+                break;
+            case LOGIN:
+                controller = memlocator.find(MainMenu.LOGIN);
+                break;
+            case RANKING:
+                controller = memlocator.find(MainMenu.RANKING);
+                break;
+            default:
+                controller = new MainController();
         }
         /*
         if (menu.equals(JOIN)) {

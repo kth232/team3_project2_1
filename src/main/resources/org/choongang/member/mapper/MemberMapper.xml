@@ -15,23 +15,23 @@
     <select id="getList" resultMap="memberMap">
         <bind name="pUserId" value="'%' + _parameter.getUserId() + '%'" />
         <bind name="pKeyword" value="'%' + _parameter.getKeyword() + '%'" />
-        SELECT * FROM (SELECT t.* FROM MEMBER t) m
+        SELECT * FROM (SELECT t.* FROM MEMBER2 t) m
         <where>
-            <!--<![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>-->
+            <![CDATA[m.NUM >= {sRow} AND m.NUM <= {eRow}]]>
             <if test="userId != null">
                 AND USER_ID LIKE #{pUserId}
             </if>
-            <!--<if test="keyword != null">
+            <if test="keyword != null">
                 AND CONCAT(USER_ID)
                 LIKE #{pKeyword}
-            </if>-->
+            </if>
         </where>
         ORDER BY m.regDt DESC
     </select>
 
     <!-- 회원 개별 조회 -->
     <select id="get" resultMap="memberMap">
-        SELECT * FROM MEMBER
+        SELECT * FROM MEMBER2
         <where>
             <if test="userId != null">
                 USER_ID=#{userId}
@@ -43,7 +43,7 @@
     <select id="getTotal" resultType="long">
         <bind name="pUserId" value="'%' + _parameter.getUserId() + '%'" />
         <bind name="pKeyword" value="'%' + _parameter.getKeyword() + '%'" />
-        SELECT COUNT(*) FROM MEMBER
+        SELECT COUNT(*) FROM MEMBER2
         <where>
             <if test="userId != null">
                 AND USER_ID LIKE #{pUserId}
@@ -56,18 +56,18 @@
 
     <!-- 회원 등록 여부 파악 - 갯수가 나오면 이미 등록으로 판단 -->
     <select id="exist" resultType="int">
-        SELECT COUNT(*) FROM MEMBER WHERE USER_ID=#{userId}
+        SELECT COUNT(*) FROM MEMBER2 WHERE USER_ID=#{userId}
     </select>
 
     <!-- 회원 등록 -->
     <insert id="register">
-        INSERT INTO MEMBER (USER_ID, USER_PW)
+        INSERT INTO MEMBER2 (USER_ID, USER_PW)
         VALUES (#{userId}, #{userPw})
     </insert>
 
     <!-- 회원 정보 수정 -->
     <update id="modify">
-        UPDATE MEMBER
+        UPDATE MEMBER2
         <set>
             <if test="userPw != null">
                 USER_PW=#{userPw},
@@ -79,6 +79,6 @@
 
     <!-- 회원 삭제 -->
     <delete id="delete">
-        DELETE FROM MEMBER WHERE USER_ID=#{userId}
+        DELETE FROM MEMBER2 WHERE USER_ID=#{userId}
     </delete>
 </mapper>

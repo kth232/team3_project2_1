@@ -54,10 +54,10 @@ public class Templates {
                 default: tpl = new MainTpl();
             }
 
-        } else if (menu instanceof GameMenu) {
-            GameMenu gameMenu = (GameMenu) menu;
-            switch (gameMenu){
-                case GAME: tpl = (Template) new GameStartTpl(); break;
+        } else if (menu instanceof Menu2) {
+            Menu2 menu2 = (Menu2) menu;
+            switch (menu2){
+                case GAMESTART: tpl = new GameStartTpl(); break;
                 case MYRANKING: tpl = new MyRankTpl(); break;
                 default: tpl = new MainTpl();
             }
