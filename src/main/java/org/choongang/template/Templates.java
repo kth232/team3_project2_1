@@ -1,10 +1,8 @@
 package org.choongang.template;
 
 
-import com.sun.tools.javac.Main;
 import org.choongang.game.contents.Menu2;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.GameMenu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.template.game.GameStartTpl;
 import org.choongang.template.game.MyRankTpl;

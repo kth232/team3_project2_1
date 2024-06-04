@@ -1,18 +1,12 @@
 package org.choongang.main;
 
-import org.choongang.game.controllers.MyRankingControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Router;
-import org.choongang.global.constants.GameMenu;
 import org.choongang.global.constants.MainMenu;
-
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
-
-import static org.choongang.global.constants.MainMenu.*;
-
 
 public class MainRouter implements Router {
     private static Router instance; //singleton pattern
@@ -29,21 +23,39 @@ public class MainRouter implements Router {
     @Override
     public void change(Menu menu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
-        ControllerLocator myrank = MyRankingControllerLocator.getInstance();
+        //ControllerLocator myrank = MyRankingControllerLocator.getInstance();
         Controller controller = null;
+
+
+        if (menu instanceof MainMenu) {
+            switch (menu) {
+                case JOIN:
+                    controller = memlocator.find(MainMenu.JOIN);
+                    break;
+                case LOGIN:
+                    controller = memlocator.find(MainMenu.LOGIN);
+                    break;
+                case RANKING:
+                    controller = memlocator.find(MainMenu.RANKING);
+                    break;
+                default:
+                    controller = new MainController();
+            }
+        }
+        /*
         if (menu.equals(JOIN)) {
             controller = memlocator.find(JOIN);
         } else if (menu.equals(LOGIN)) {
             controller = memlocator.find(LOGIN);
-        } else if (menu.equals(RANKING)) {
-            controller = memlocator.find(RANKING);
-        } else if (menu.equals(GameMenu.MYRANKING)) {
-            controller = myrank.find(GameMenu.MYRANKING);
+        } else if (menu.equals(MainMenu.RANKING)) {
+            controller = memlocator.find(MainMenu.RANKING);
+        } else if (menu.equals(Menu2.MYRANKING)) {
+            controller = myrank.find(Menu2.MYRANKING);
         }
         else{
             controller = new MainController();
         }
-
+         */
         controller.run(); //common(), show(), prompt()
     }
 

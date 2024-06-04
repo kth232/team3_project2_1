@@ -12,11 +12,9 @@ public class ExitController extends AbstractController {
             System.out.println(Templates.getInstance().doubleLine());
             System.exit(0); //0: 정상종료/1: 비정상 종료
         }
-        
     }
 
     @Override
     public void show() {
-
     }
 }

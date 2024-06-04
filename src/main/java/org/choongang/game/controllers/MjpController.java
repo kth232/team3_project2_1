@@ -1,11 +1,7 @@
 package org.choongang.game.controllers;
 
-import org.choongang.game.Menu2Router;
-import org.choongang.game.Router2;
 import org.choongang.game.contents.Menu2;
 import org.choongang.global.AbstractController;
-import org.choongang.global.Menu;
-import org.choongang.global.constants.GameMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
@@ -179,10 +175,9 @@ public class MjpController extends AbstractController {
 
     private void change(int menuNo) {
         Menu2 menu2 = null;
-        GameMenu menu = null;
         if(menuNo == 2){
-            menu = GameMenu.MYRANKING;
-            MainRouter.getInstance().change(menu);
+            menu2 = Menu2.MYRANKING;
+            MainRouter.getInstance().change(menu2);
         }else {
             switch (menuNo) {
                 case 1: menu2 = Menu2.GAMESTART; // 게임시작 화면으로 이동
@@ -196,7 +191,7 @@ public class MjpController extends AbstractController {
             }
         }
 
-        Menu2Router.getInstance().change(menu2);
+        MainRouter.getInstance().change(menu2);
         //메뉴 컨트롤러 변경 처리-Router/싱글톤 패턴으로 자원 절약
     }
 }

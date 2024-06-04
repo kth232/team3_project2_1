@@ -82,6 +82,4 @@ public abstract class AbstractController implements Controller {
         //메뉴 컨트롤러 변경 처리-Router/싱글톤 패턴으로 자원 절약
         MainRouter.getInstance().change(mainMenu);
     }
-
-    public abstract Service find(MainMenu menu);
 }

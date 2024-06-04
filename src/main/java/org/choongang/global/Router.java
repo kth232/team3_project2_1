@@ -6,6 +6,7 @@ package org.choongang.global;
  */
 public interface Router {
     void change(Menu menu);
+
     //enum 상수를 넣으면 해당 메뉴로 연결
     void start();
 }

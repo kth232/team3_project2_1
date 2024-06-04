@@ -4,7 +4,6 @@ import org.choongang.game.contents.Menu2;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.GameMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,9 +31,9 @@ public class MyRankingControllerLocator extends AbstractControllerLocator {
         }
 
         // 게임 서브 메뉴
-        if(menu instanceof GameMenu) {
-            GameMenu gameMenu = (GameMenu)menu;
-            switch (gameMenu) {
+        if(menu instanceof Menu2) {
+            Menu2 menu2 = (Menu2)menu;
+            switch (menu2) {
                 case MYRANKING: controller = new MyRankingController(); break;
                 case RESTART: controller = new MyRankingController(); break; // 컨트롤러 변경
                 case EXIT: controller = new ExitController(); break;
@@ -42,7 +41,6 @@ public class MyRankingControllerLocator extends AbstractControllerLocator {
         } else{
             System.out.println("정확한 메뉴명을 입력해주세요");
         }
-
         return controller;
     }
 }

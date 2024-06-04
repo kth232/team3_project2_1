@@ -1,11 +1,8 @@
 package org.choongang.game.controllers;
 
-import org.choongang.game.Menu2Router;
 import org.choongang.game.contents.Menu2;
-import org.choongang.game.entities.MyRank;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Service;
-import org.choongang.global.constants.GameMenu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
@@ -19,7 +16,7 @@ public class MyRankingController extends AbstractController {
 
     @Override
     public void show() {
-        Templates.getInstance().render(GameMenu.MYRANKING, () -> {
+        Templates.getInstance().render(Menu2.MYRANKING, () -> {
             return "    _ _ _처리된 랭킹 목록_ _ _\n";
         });
         // MainRouter.getInstance().change(GameMenu.MYRANKING);
@@ -67,6 +64,6 @@ public class MyRankingController extends AbstractController {
                 System.exit(0);
 
         }
-        Menu2Router.getInstance().change(menu2);
+        MainRouter.getInstance().change(menu2);
     }
 }

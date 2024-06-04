@@ -1,11 +1,9 @@
 package org.choongang.game.controllers;
 
-import org.choongang.global.AbstractController;
-import org.choongang.game.Menu2Router;
-import org.choongang.game.Router2;
 import org.choongang.game.contents.Menu2;
+import org.choongang.global.AbstractController;
+import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
-import org.choongang.template.game.TemplatesM2;
 
 /**
  * 게임설명 컨트롤러
@@ -13,7 +11,7 @@ import org.choongang.template.game.TemplatesM2;
 public class RuleController extends AbstractController {
     @Override
     public void show() { //모델과 뷰 연결 및 동작
-        TemplatesM2.getInstance().render(Menu2.RULE);
+        Templates.getInstance().render(Menu2.RULE);
     }
 
     @Override
@@ -31,7 +29,7 @@ public class RuleController extends AbstractController {
         } catch (Exception e) {
             //e.printStackTrace();
             System.err.println("메뉴는 [숫자]로 입력해주세요.\n5번과 (q/quit/exit) 중 선택해주세요.");
-            Menu2Router.getInstance().change(Menu2.RULE);
+            MainRouter.getInstance().change(Menu2.RULE);
         }
 
     } //prompt 재정의
@@ -44,6 +42,6 @@ public class RuleController extends AbstractController {
             default:
                 throw new Exception();
         }
-        Menu2Router.getInstance().change(menu2);
+        MainRouter.getInstance().change(menu2);
     }
 }

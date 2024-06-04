@@ -1,10 +1,9 @@
 package org.choongang.game.controllers;
 
-import org.choongang.global.AbstractController;
-import org.choongang.game.Menu2Router;
 import org.choongang.game.contents.Menu2;
+import org.choongang.global.AbstractController;
+import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
-import org.choongang.template.game.TemplatesM2;
 
 public class Menu2Controller extends AbstractController{
 /**
@@ -12,7 +11,7 @@ public class Menu2Controller extends AbstractController{
  */
     @Override
     public void show() {
-        TemplatesM2.getInstance().render(Menu2.MAIN2);
+        Templates.getInstance().render(Menu2.MAIN2);
     }
 
     @Override
@@ -30,7 +29,7 @@ public class Menu2Controller extends AbstractController{
         } catch (Exception e) {
             //e.printStackTrace();
             System.err.println("메뉴는 [숫자]로 입력해주세요.\n3번과 4번 중 선택해주세요.");
-            Menu2Router.getInstance().change(Menu2.MAIN2);
+            MainRouter.getInstance().change(Menu2.MAIN2);
         }
     }
     private void change(int menuNo) throws Exception {
@@ -45,6 +44,6 @@ public class Menu2Controller extends AbstractController{
             default:
                 throw new Exception();
         }
-        Menu2Router.getInstance().change(menu2);
+        MainRouter.getInstance().change(menu2);
     }
 }

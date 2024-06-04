@@ -1,6 +1,9 @@
 package org.choongang.template.game;
 
-public class RuleTpl implements TemplateM2 {
+import org.choongang.template.Template;
+import org.choongang.template.Templates;
+
+public class RuleTpl implements Template {
 
     @Override
     public String getTpl() {
@@ -11,7 +14,7 @@ public class RuleTpl implements TemplateM2 {
         sb.append("명예의 전당에 도전하세요~\n");
         sb.append("게임을 시작하려면 '5'를 입력하세요\n");
 
-        sb.append(TemplatesM2.getInstance().Line());
+        sb.append(Templates.getInstance().Line());
         sb.append("* 종료하려면 q/quit/exit 중 하나를 입력하세요.\n");
 
         return sb.toString();
