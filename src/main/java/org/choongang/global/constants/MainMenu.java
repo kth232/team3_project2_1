@@ -1,4 +1,4 @@
-package org.choongang.global.contents;
+package org.choongang.global.constants;
 
 import org.choongang.global.Menu;
 

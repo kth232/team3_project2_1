@@ -4,6 +4,9 @@ import org.choongang.game.Menu2Router;
 import org.choongang.game.Router2;
 import org.choongang.game.contents.Menu2;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Menu;
+import org.choongang.global.constants.GameMenu;
+import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
 import java.util.Scanner;
@@ -121,6 +124,7 @@ public class MjpController extends AbstractController {
                         throw new Exception();
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
                     System.err.println("메뉴 1,2,3 중에서 선택하세요.");
                 }
             }
@@ -175,18 +179,23 @@ public class MjpController extends AbstractController {
 
     private void change(int menuNo) {
         Menu2 menu2 = null;
-        switch (menuNo) {
-            case 1: menu2 = Menu2.GAMESTART; // 게임시작 화면으로 이동
-                break;
-            case 2:
-                menu2 = Menu2.RULE; //추후 rule 말고 시원 소은님의 결과, 랭킹 화면으로
-                break;
-            case 3:
-                System.out.printf("당신의 점수는 [%d]입니다.%n", userRating);
-                System.out.println("최종 스코어: 유저 승리 횟수: "+ userWins +"/ PC 승리 횟수: "+ comWins);
+        GameMenu menu = null;
+        if(menuNo == 2){
+            menu = GameMenu.MYRANKING;
+            MainRouter.getInstance().change(menu);
+        }else {
+            switch (menuNo) {
+                case 1: menu2 = Menu2.GAMESTART; // 게임시작 화면으로 이동
+                    break;
+                case 3:
+                    System.out.printf("당신의 점수는 [%d]입니다.%n", userRating);
 
-                System.exit(0);
+                    System.out.println("최종 스코어: 유저 승리 횟수: "+ userWins +"/ PC 승리 횟수: "+ comWins);
+
+                    System.exit(0);
+            }
         }
+
         Menu2Router.getInstance().change(menu2);
         //메뉴 컨트롤러 변경 처리-Router/싱글톤 패턴으로 자원 절약
     }
