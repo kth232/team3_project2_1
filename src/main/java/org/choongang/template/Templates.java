@@ -4,7 +4,10 @@ package org.choongang.template;
 import com.sun.tools.javac.Main;
 import org.choongang.game.contents.Menu2;
 import org.choongang.global.Menu;
+import org.choongang.global.constants.GameMenu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.template.game.GameStartTpl;
+import org.choongang.template.game.MyRankTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
@@ -43,13 +46,24 @@ public class Templates {
         if (tpl != null) {
             return tpl;
         }
-        MainMenu mainMenu = (MainMenu) menu;
 
-        switch (mainMenu) {
-            case JOIN: tpl = new JoinTpl(); break;
-            case LOGIN: tpl = new LoginTpl(); break;
-            case RANKING: tpl = new RankingTpl(); break;
-            default: tpl = new MainTpl();
+        if(menu instanceof MainMenu){
+            MainMenu mainMenu = (MainMenu) menu;
+            switch (mainMenu) {
+                case JOIN: tpl = new JoinTpl(); break;
+                case LOGIN: tpl = new LoginTpl(); break;
+                case RANKING: tpl = new RankingTpl(); break;
+                default: tpl = new MainTpl();
+            }
+
+        } else if (menu instanceof GameMenu) {
+            GameMenu gameMenu = (GameMenu) menu;
+            switch (gameMenu){
+                case GAME: tpl = (Template) new GameStartTpl(); break;
+                case MYRANKING: tpl = new MyRankTpl(); break;
+                default: tpl = new MainTpl();
+            }
+
         }
         if(hook != null){
         tpl.addHook(hook);

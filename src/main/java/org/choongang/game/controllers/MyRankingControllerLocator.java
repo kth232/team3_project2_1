@@ -1,17 +1,22 @@
 package org.choongang.game.controllers;
 
+import org.choongang.game.contents.Menu2;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.GameMenu;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyRankingControllerLocator extends AbstractControllerLocator {
 
     private static MyRankingControllerLocator instance;
+    private Map<Menu, Controller> controllers;
 
-    private MyRankingControllerLocator() {}
+    private MyRankingControllerLocator() { controllers = new HashMap<>();}
 
-    public static MyRankingControllerLocator getInstance() {
+    public static AbstractControllerLocator getInstance() {
         if(instance == null) {
             instance = new MyRankingControllerLocator() {
             };
