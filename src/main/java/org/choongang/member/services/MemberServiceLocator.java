@@ -5,7 +5,7 @@ import org.choongang.global.Menu;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.contents.MainMenu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;

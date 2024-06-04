@@ -2,14 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.choongang.ranking.mapper.PointLogMapper">
+<mapper namespace="org.choongang.game.mapper.MyPointLogMapper">
+   <insert id="myPointRegister">
+       INSERT INTO POINT_LOG
+        VALUES (SEQ_POINT_LOG.NEXTVAL, #{userId}, #{point}, #{message})
+   </insert>
 
-    <insert id="register">
-        INSERT INTO POINT_LOG
-            VALUES(SEQ_POINT_LOG.NEXTVAL, #{userId}, #{point}, #{message})
-    </insert>
-
-    <!--랭킹 가져오는 쿼리 - 포인트 많은 순으로 정렬/인라인 뷰 형태로-->
     <select id="getRank">
         <![CDATA[
         SELECT ROWNUM RANK, d.* FROM (
@@ -21,4 +19,9 @@
         ) d WHERE ROWNUM <= 3
         ]]>
     </select>
+
+<!--    <select id="getUserScore" resultType="org.choongang.game.entities.MyPointLog">-->
+<!--        SELECT COUNT(*) gamecount, m.USER_ID userId, SUM(p.POINT) userscore FROM POINT_LOG p-->
+<!--            JOIN MEMBER m ON p.USER_NO = m.USER_NO GROUP BY m.USER_ID ORDER BY SUM(p.POINT) DESC-->
+<!--    </select>-->
 </mapper>

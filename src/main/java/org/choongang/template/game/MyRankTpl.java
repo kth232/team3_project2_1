@@ -5,10 +5,10 @@ import org.choongang.template.Templates;
 
 import java.util.function.Supplier;
 
-public class MyRankTpl implements Template{
-
+public class MyRankTpl implements Template {
+    
     private Supplier<String> hook;
-
+   
     public void addHook(Supplier<String> hook){
         this.hook = hook;
     }
